@@ -1,0 +1,38 @@
+.decklist {
+  margin-top: 30px;
+}
+
+.decklist__title {
+  font-size: 12px;
+}
+
+.decklist__category {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.decklist__category__item {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0, 0.5);
+  margin: 0px 5px;
+}
+
+.selected {
+  font-weight: 600;
+  color: black;
+}
+
+.decklist__image__wrapper {
+  margin: 10px;
+}
+
+.decklist__image {
+  width: 80px;
+  height: 80px;
+}
+
+.decklist__line {
+  height: 1px;
+  width: 20px;
+}
