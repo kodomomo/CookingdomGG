@@ -1,26 +1,22 @@
 enum Enviroment {
-  PRODUCTION = "production",
-  DEVELOPMENT = "development",
-  LOCAL = "local",
+  PRODUCTION = 'production',
+  DEVELOPMENT = 'development',
+  LOCAL = 'local',
 }
 
 interface Config {
-  deeplink: string;
   apiHost: string;
 }
 
 const config: Record<Enviroment, Config> = {
   [Enviroment.PRODUCTION]: {
-    deeplink: "baemin",
-    apiHost: "https://api.cookingdom.gg",
+    apiHost: 'http://52.79.226.78:8080',
   },
   [Enviroment.DEVELOPMENT]: {
-    deeplink: "baemin-beta",
-    apiHost: "https://api.beta.cookingdom.gg",
+    apiHost: 'http://52.79.226.78:8080',
   },
   [Enviroment.LOCAL]: {
-    deeplink: "baemin-beta",
-    apiHost: "https://api.beta.cookingdom.gg",
+    apiHost: 'http://52.79.226.78:8080',
   },
 };
 
