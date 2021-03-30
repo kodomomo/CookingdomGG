@@ -14,12 +14,11 @@
 
 .decklist__category__item {
   font-size: 12px;
-  color: rgba(0, 0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
   margin: 0px 5px;
 }
 
 .selected {
-  font-weight: 600;
   color: black;
 }
 
@@ -27,12 +26,45 @@
   margin: 10px;
 }
 
-.decklist__image {
+.desklist_value_list {
+  display: flex;
+}
+
+.desklist_value_item {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.desklist_value_item_selected {
+  color: black;
+  font-size: 10px;
+}
+
+.decklist__item {
   width: 80px;
+  margin: 10px;
+}
+
+.decklist__image {
+  width: 100%;
   height: 80px;
+}
+
+.decklist__name {
+  font-size: 14px;
+  text-align: center;
+  margin: 0px;
+  margin-top: 5px;
 }
 
 .decklist__line {
   height: 1px;
   width: 20px;
+}
+
+.decklist__item__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }

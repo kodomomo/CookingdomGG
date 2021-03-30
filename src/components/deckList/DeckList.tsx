@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
+import DeckListItem from './deck/deckListItem';
+
+interface Props {}
 
 const DeckList: FC = () => {
-  return <div></div>;
+  return <div className='decklist__item__wrapper'></div>;
 };
 
 export default DeckList;
