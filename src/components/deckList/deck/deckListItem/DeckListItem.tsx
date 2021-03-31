@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import '../style/index.scss';
+import '../../style/index.scss';
 
 interface Props {
   image: string;

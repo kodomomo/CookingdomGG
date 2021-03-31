@@ -60,9 +60,22 @@
 .decklist__line {
   height: 1px;
   width: 20px;
+  background-color: black;
+  margin: 10px;
 }
 
 .decklist__item__wrapper {
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.deck__cookie__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.decklist__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
