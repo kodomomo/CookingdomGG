@@ -1,2 +1,2 @@
-import React from 'react';
-export default React;
+import Deck from './Deck';
+export default Deck;

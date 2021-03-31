@@ -23,8 +23,8 @@ export type treasure = {
 
 export type deck = {
   type: type;
-  cookie: string[];
-  treasure: string[];
+  cookie: cookie[];
+  treasure: treasure[];
   substitution: string[];
 };
 
