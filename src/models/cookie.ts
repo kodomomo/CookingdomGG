@@ -28,4 +28,4 @@ export type deck = {
   substitution: string[];
 };
 
-export type type = 'PVP' | 'PVE' | 'RAID';
+export type type = 'PVP' | 'PVE' | 'RAID' | 'ALL';
