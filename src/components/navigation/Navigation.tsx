@@ -30,7 +30,7 @@ const Navigation = () => {
       value={page}
     >
       <BottomNavigationAction label='쿠키 검색' value='search' />
-      <BottomNavigationAction label='쿠키 보기' value='main' />
+      <BottomNavigationAction label='쿠키 보기' value='cookies' />
       <BottomNavigationAction label='조합 보기' value='deck' />
     </BottomNavigation>
   );
