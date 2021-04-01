@@ -21,7 +21,10 @@ code {
 
 .main {
   padding: 20px;
+  padding-bottom: 56px;
   box-sizing: border-box;
+  height: 100%;
+  position: relative;
 }
 
 .MuiBottomNavigationAction-root.Mui-selected {
