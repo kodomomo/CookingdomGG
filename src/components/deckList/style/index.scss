@@ -5,6 +5,7 @@
 
 .decklist__header {
   width: 100%;
+  max-width: 500px;
   position: sticky;
   top: 0;
   background-color: white;
@@ -12,6 +13,7 @@
 
 .decklist__title {
   font-size: 18px;
+  margin-top: 0px;
 }
 
 .decklist__category {
@@ -90,7 +92,6 @@
 
 .decklist__wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   overflow: scroll;
