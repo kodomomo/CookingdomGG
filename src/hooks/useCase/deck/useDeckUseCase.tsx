@@ -1,17 +1,19 @@
 import { useEffect } from 'react';
 import { getAllDeck, getTypeDeck } from '../../api/deck/deckApi';
 import useDeck from '../../domain/deck/useDeck';
+import useLoading from '../../domain/loading/useLoading';
 
 const useDeckUseCase = () => {
   const { deck, setDeck, deckType, setDeckType } = useDeck();
-  const getDeckAndSetState = async () => {
+  const { loading, requestWrapper } = useLoading();
+  const getDeckAndSetState = requestWrapper(async () => {
     const data = await getTypeDeck(deckType);
     setDeck(data);
-  };
-  const getAllDeckAndSetState = async () => {
+  });
+  const getAllDeckAndSetState = requestWrapper(async () => {
     const data = await getAllDeck();
     setDeck(data);
-  };
+  });
   useEffect(() => {
     if (deckType === 'ALL') getAllDeckAndSetState();
     else getDeckAndSetState();
@@ -22,6 +24,7 @@ const useDeckUseCase = () => {
     setDeck,
     deckType,
     setDeckType,
+    loading,
   };
 };
 

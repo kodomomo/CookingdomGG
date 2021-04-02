@@ -22,6 +22,7 @@ const Navigation = () => {
   useEffect(() => {
     history.push(`/${page}`);
   }, [page]);
+
   return (
     <BottomNavigation
       showLabels

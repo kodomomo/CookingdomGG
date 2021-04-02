@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navigation from './components/navigation';
 import { CookieDetail } from './components/cookieDetail';
 import { DeckPage } from './pages';
-import CookieListPage from './pages/CookieListPage'
+import CookieListPage from './pages/CookieListPage';
 
 const App = () => {
   const [cookieDetailOpen, setCookieDetailOpen] = useState(false);

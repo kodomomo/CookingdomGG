@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import { Zoom, Paper, makeStyles } from '@material-ui/core';
 import config from '../../config';
 
-interface Props {}
-
 interface Props {
   image: string;
   name: string;
   index: number;
+  width?: number;
+  height?: number;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '16px',
   },
   svg: {
-    width: 100,
-    height: 100,
+    width: '100%',
+    height: '100%',
     border: '0px',
     boxShadow: '0px 0px white',
   },
@@ -39,10 +39,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ListItem: FC<Props> = ({ image, index }) => {
+const ListItem: FC<Props> = ({ image, index, width, height }) => {
   const classes = useStyles();
+  const itemStyle = {
+    width: width ? width : '100px',
+    height: height ? height : '100px',
+  };
   return (
-    <Zoom in={true} style={{ transitionDelay: `${index * 20}ms` }}>
+    <Zoom in={true} style={{ transitionDelay: `${index * 20}ms`, ...itemStyle }}>
       <Paper elevation={3} className={classes.paper}>
         <div
           className={classes.svg}
