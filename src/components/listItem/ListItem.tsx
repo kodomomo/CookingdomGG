@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Zoom, Paper, makeStyles } from '@material-ui/core';
+import config from '../../config';
 
 interface Props {}
 
@@ -20,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     margin: '8px 7.5px',
     cursor: 'pointer',
+    borderRadius: '16px',
   },
   svg: {
     width: 100,
@@ -37,14 +39,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ListItem: FC<Props> = ({ image, name, index }) => {
+const ListItem: FC<Props> = ({ image, index }) => {
   const classes = useStyles();
   return (
     <Zoom in={true} style={{ transitionDelay: `${index * 20}ms` }}>
       <Paper elevation={3} className={classes.paper}>
         <div
           className={classes.svg}
-          style={{ backgroundImage: `url(${image})`, backgroundSize: '100px' }}
+          style={{ backgroundImage: `url(${config.imageUrl}${image})`, backgroundSize: '100px' }}
         />
       </Paper>
     </Zoom>
