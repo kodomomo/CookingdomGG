@@ -6,8 +6,8 @@ interface Props {
   image: string;
   name: string;
   index: number;
-  width?: number;
-  height?: number;
+  width?: string;
+  height?: string;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +27,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '100%',
     border: '0px',
+    backgroundSize: '100%',
     boxShadow: '0px 0px white',
   },
   polygon: {
@@ -50,7 +51,7 @@ const ListItem: FC<Props> = ({ image, index, width, height }) => {
       <Paper elevation={3} className={classes.paper}>
         <div
           className={classes.svg}
-          style={{ backgroundImage: `url(${config.imageUrl}${image})`, backgroundSize: '100px' }}
+          style={{ backgroundImage: `url(${config.imageUrl}${image})` }}
         />
       </Paper>
     </Zoom>

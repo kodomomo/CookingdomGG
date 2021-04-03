@@ -27,6 +27,8 @@ const Deck: FC<Props> = ({ cookieList, treasureList }) => {
             name={treasure.name}
             index={index}
             key={`cookie ${index} ${treasure.name}`}
+            width='70px'
+            height='70px'
           />
         ))}
       </div>
