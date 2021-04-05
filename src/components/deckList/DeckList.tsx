@@ -5,11 +5,20 @@ import Deck from './deck';
 import Header from './header';
 import { CircularProgress } from '@material-ui/core';
 
-const DeckList: FC = () => {
+interface Props {
+  openDetailCookie: (value: string) => void;
+}
+
+const DeckList: FC<Props> = ({ openDetailCookie }) => {
   const { deck, deckType, setDeckType, loading } = useDeckUseCase();
   const renderDeck = (decks: deck[]) => {
     return decks.map((deck, index) => (
-      <Deck cookieList={deck.cookie} treasureList={deck.treasure} key={index} />
+      <Deck
+        cookieList={deck.cookie}
+        treasureList={deck.treasure}
+        key={index}
+        openDetailCookie={openDetailCookie}
+      />
     ));
   };
   return (

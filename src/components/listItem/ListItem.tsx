@@ -8,6 +8,7 @@ interface Props {
   index: number;
   width?: string;
   height?: string;
+  onClick?: () => void;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -40,15 +41,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ListItem: FC<Props> = ({ image, index, width, height }) => {
+const ListItem: FC<Props> = ({ image, index, width, height, onClick }) => {
   const classes = useStyles();
   const itemStyle = {
     width: width ? width : '100px',
     height: height ? height : '100px',
   };
+  const listClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onClick) onClick();
+  };
   return (
     <Zoom in={true} style={{ transitionDelay: `${index * 20}ms`, ...itemStyle }}>
-      <Paper elevation={3} className={classes.paper}>
+      <Paper elevation={3} className={classes.paper} onClick={listClickHandler}>
         <div
           className={classes.svg}
           style={{ backgroundImage: `url(${config.imageUrl}${image})` }}
