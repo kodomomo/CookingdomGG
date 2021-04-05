@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import DeckList from '../components/deckList';
 
-const DeckPage = () => {
-  return <DeckList />;
+interface Props {
+  openDetailCookie: (value: string) => void;
+}
+
+const DeckPage: FC<Props> = ({ openDetailCookie }) => {
+  return <DeckList openDetailCookie={openDetailCookie} />;
 };
 
 export default DeckPage;
