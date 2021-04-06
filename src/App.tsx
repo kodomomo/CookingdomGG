@@ -20,7 +20,7 @@ const App = () => {
         <div className='main'>
           <Switch>
             <Route path='/deck' render={() => <DeckPage openDetailCookie={openDetailCookie} />} />
-            <Route path='/cookies' component={CookieListPage} />
+            <Route path='/cookies' render={() => <CookieListPage openDetailCookie={openDetailCookie} />} />
           </Switch>
         </div>
         <Navigation />

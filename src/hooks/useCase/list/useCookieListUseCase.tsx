@@ -59,7 +59,6 @@ const useCookieListUseCase = () => {
 
     return {
         cookieList,
-        setCookieList,
         searchType,
         setSearchType,
         tier,

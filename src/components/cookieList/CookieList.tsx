@@ -4,18 +4,24 @@ import Header from './header';
 import useCookieListUseCase from '../../hooks/useCase/list/useCookieListUseCase';
 import { cookie } from '../../models/cookie';
 
-interface Props {}
+interface Props {
+    openDetailCookie: (value: string) => void;
+}
 
-const CookieList: FC = () => {
+const CookieList: FC<Props> = ({ openDetailCookie }) => {
 
     const {
-        cookieList, setCookieList,
+        cookieList,
         searchType, setSearchType,
         tier, setTier,
         rank, setRank,
         position, setPosition,
         major, setMajor
     } = useCookieListUseCase();
+
+    const getCookieListClickHandler = (cookieName: string) => () => {
+        openDetailCookie(cookieName);
+      };
 
     const renderCookieList = (cookies: cookie[]) => {
         let i = 0;
@@ -25,8 +31,9 @@ const CookieList: FC = () => {
                     height: '100px',
                     borderRadius: '15px'
                 }}>
-                <div className="cookielist__content__list__paper">
+                <div className="cookielist__content__list__paper" onClick={() => {getCookieListClickHandler(cookie.name);console.log(getCookieListClickHandler(cookie.name))}}>
                     <img src={"https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/" + cookie.cookie_image_url} />
+                    {/* <img src={`${config.apiHost}/image/${cookie.cookie_image_url}`} /> */}
                 </div>
             </Zoom>
         ));

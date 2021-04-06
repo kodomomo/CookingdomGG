@@ -4,11 +4,6 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   height: 100%;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;
 }
 
 .cookielist__header {
@@ -60,6 +55,21 @@
     padding: 0;
     left: 0;
     li {
+      button {
+        min-width: 40px;
+        height: 30px;
+        color: #00000080;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #00000000;
+        font-size: 15px;
+        &.selected {
+          color: black;
+        }
+      }
       img {
         height: 35px;
         opacity: 0.5;
