@@ -39,7 +39,7 @@ const CookieDetail: FC<Props> = ({ open, setOpen, cookieName }) => {
           rank={cookie.rank}
           cookieImageUri={cookie.cookie_image_url}
         />
-        <Topping topping={''} toppingImageUri={''} />
+        <Topping topping={cookie.topping} />
         <Skill
           skillName={cookie.skill_name}
           coolTime={cookie.cool_time}
