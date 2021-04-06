@@ -1,4 +1,4 @@
-import { useEffect } from 'react-transition-group/node_modules/@types/react';
+import { useEffect } from 'react';
 import useNavigation from '../../domain/navigation/useNavigation';
 import { useHistory } from 'react-router-dom';
 
