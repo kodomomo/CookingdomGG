@@ -1,57 +1,49 @@
-import React, { FC, useCallback } from 'react';
-import Paper from '@material-ui/core/Paper';
+import { FC } from 'react';
 import Zoom from '@material-ui/core/Zoom';
-import { makeStyles } from '@material-ui/core/styles';
+import Header from './header';
+import useCookieListUseCase from '../../hooks/useCase/list/useCookieListUseCase';
+import { cookie } from '../../models/cookie';
 
 interface Props {}
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        height: 'auto',
-    },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap'
-    },
-    paper: {
-        margin: '8px 7.5px',
-        cursor: 'pointer'
-    },
-    svg: {
-        width: 100,
-        height: 100,
-    },
-    polygon: {
-        fill: theme.palette.common.white,
-        stroke: theme.palette.divider,
-        strokeWidth: 1,
-    },
-    element: {
-        margin: '8px auto'
-    }
-}));
-
 const CookieList: FC = () => {
-    const classes = useStyles();
 
-    const getList = () => {
-        let list = [];
-        for (let i = 0; i < 35; i++) {
-            list.push(
-                <Zoom in={true} style={{ transitionDelay: `${i * 20}ms` }}>
-                    <Paper elevation={3} className={classes.paper}>
-                        <svg className={classes.svg}></svg>
-                    </Paper>
-                </Zoom>
-            );
-        }
-        return list;
+    const {
+        cookieList, setCookieList,
+        searchType, setSearchType,
+        tier, setTier,
+        rank, setRank,
+        position, setPosition,
+        major, setMajor
+    } = useCookieListUseCase();
+
+    const renderCookieList = (cookies: cookie[]) => {
+        let i = 0;
+        return cookies.map((cookie, index) => (
+            <Zoom in={true} style={{
+                    transitionDelay: `${i++ * 15}ms`,
+                    height: '100px',
+                    borderRadius: '15px'
+                }}>
+                <div className="cookielist__content__list__paper">
+                    <img src={"https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/" + cookie.cookie_image_url} />
+                </div>
+            </Zoom>
+        ));
     }
 
     return (
-        <div className={classes.root}>
-            <div className={classes.container}>
-                {getList()}
+        <div id="cookielist__wrapper">
+            <Header 
+                searchType={searchType} setSearchType={setSearchType}
+                tier={tier} setTier={setTier}
+                rank={rank} setRank={setRank}
+                position={position} setPosition={setPosition}
+                major={major} setMajor={setMajor} />
+            <div className="cookielist__content">
+                <div className="cookielist__content__list">
+                    {renderCookieList(cookieList)}
+                </div>
             </div>
         </div>
     );
