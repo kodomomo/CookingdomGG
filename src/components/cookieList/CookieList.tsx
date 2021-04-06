@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Zoom from '@material-ui/core/Zoom';
 import Header from './header';
 import useCookieListUseCase from '../../hooks/useCase/list/useCookieListUseCase';
 import { cookie } from '../../models/cookie';
+import config from '../../config';
 
 interface Props {
     openDetailCookie: (value: string) => void;
@@ -19,7 +20,9 @@ const CookieList: FC<Props> = ({ openDetailCookie }) => {
         major, setMajor
     } = useCookieListUseCase();
 
-    const getCookieListClickHandler = (cookieName: string) => () => {
+    const getCookieListClickHandler = (cookieName: string) => (e:React.MouseEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        e.stopPropagation();
         openDetailCookie(cookieName);
       };
 
@@ -31,9 +34,8 @@ const CookieList: FC<Props> = ({ openDetailCookie }) => {
                     height: '100px',
                     borderRadius: '15px'
                 }}>
-                <div className="cookielist__content__list__paper" onClick={() => {getCookieListClickHandler(cookie.name);console.log(getCookieListClickHandler(cookie.name))}}>
-                    <img src={"https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/" + cookie.cookie_image_url} />
-                    {/* <img src={`${config.apiHost}/image/${cookie.cookie_image_url}`} /> */}
+                <div className="cookielist__content__list__paper" onClick={getCookieListClickHandler(cookie.name)}>
+                    <img src={`${config.apiHost}/image/${cookie.cookie_image_url}`} />
                 </div>
             </Zoom>
         ));

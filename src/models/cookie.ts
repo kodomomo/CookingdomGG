@@ -4,7 +4,7 @@ export type cookie = {
   tier: number;
   major: string;
   position: string;
-  topping: string;
+  topping: string[];
   skill_name: string;
   skill_description: string;
   cool_time: number;
