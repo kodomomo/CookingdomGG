@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import { Zoom, Paper, makeStyles } from '@material-ui/core';
-
-interface Props {}
+import config from '../../config';
 
 interface Props {
   image: string;
   name: string;
   index: number;
+  width?: string;
+  height?: string;
+  onClick?: () => void;
 }
 
 const useStyles = makeStyles(theme => ({
@@ -20,11 +22,13 @@ const useStyles = makeStyles(theme => ({
   paper: {
     margin: '8px 7.5px',
     cursor: 'pointer',
+    borderRadius: '16px',
   },
   svg: {
-    width: 100,
-    height: 100,
+    width: '100%',
+    height: '100%',
     border: '0px',
+    backgroundSize: '100%',
     boxShadow: '0px 0px white',
   },
   polygon: {
@@ -37,14 +41,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ListItem: FC<Props> = ({ image, name, index }) => {
+const ListItem: FC<Props> = ({ image, index, width, height, onClick }) => {
   const classes = useStyles();
+  const itemStyle = {
+    width: width ? width : '100px',
+    height: height ? height : '100px',
+  };
+  const listClickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onClick) onClick();
+  };
   return (
-    <Zoom in={true} style={{ transitionDelay: `${index * 20}ms` }}>
-      <Paper elevation={3} className={classes.paper}>
+    <Zoom in={true} style={{ transitionDelay: `${index * 20}ms`, ...itemStyle }}>
+      <Paper elevation={3} className={classes.paper} onClick={listClickHandler}>
         <div
           className={classes.svg}
-          style={{ backgroundImage: `url(${image})`, backgroundSize: '100px' }}
+          style={{ backgroundImage: `url(${config.imageUrl}${image})` }}
         />
       </Paper>
     </Zoom>

@@ -3,7 +3,7 @@ import { deck, type } from '../../../models/cookie';
 
 const useDeck = () => {
   const [deck, setDeck] = useState<deck[]>([]);
-  const [deckType, setDeckType] = useState<type>('PVE');
+  const [deckType, setDeckType] = useState<type>('ALL');
   return {
     deck,
     setDeck,
