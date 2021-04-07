@@ -21,6 +21,19 @@ const CookieDetail: FC<Props> = ({ open, setOpen, cookieName }) => {
     });
   }, []);
 
+  useEffect(() => {
+    const element = document.getElementById('cookielist__wrapper');
+    if (open) {
+      if (element) {
+        // element.style.overflowY = 'hidden';
+      }
+    } else {
+      if (element) {
+        element.style.overflowY = 'scroll';
+      }
+    }
+  }, [open]);
+
   const { cookie, setName } = useCookieUseCase();
 
   useEffect(() => {
@@ -32,6 +45,7 @@ const CookieDetail: FC<Props> = ({ open, setOpen, cookieName }) => {
 
   const onClickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
+    e.stopPropagation();
     currentPos = e.clientY;
     setProcessing(true);
   };
@@ -96,6 +110,10 @@ const CookieDetail: FC<Props> = ({ open, setOpen, cookieName }) => {
       onTouchStart={onTouchHandler}
       onTouchMove={touchMoveHandler}
       onTouchEnd={touchCloseHandler}
+      onScroll={e => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
     >
       <div className='cookiedetail__wrapper'>
         <Cookie cookie={cookie} />

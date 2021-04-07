@@ -47,7 +47,11 @@ const CookieList: FC<Props> = ({ openDetailCookie }) => {
           className='cookielist__content__list__paper'
           onClick={getCookieListClickHandler(cookie.name)}
         >
-          <img src={`${config.apiHost}/image/${cookie.cookie_image_url}`} alt='cookie img' />
+          {/* <img src={`${config.apiHost}/image/${cookie.cookie_image_url}`} alt='cookie img' /> */}
+          <img
+            src={`https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/${cookie.cookie_image_url}`}
+            alt='cookie img'
+          />
         </div>
       </Zoom>
     ));
