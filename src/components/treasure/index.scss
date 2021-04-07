@@ -1,0 +1,25 @@
+.treasure__wrap {
+  .selected > ul {
+    flex-wrap: wrap;
+    > li > button {
+      min-width: auto;
+      height: auto;
+      margin: 0 10px;
+    }
+  }
+  .treasure__content_item {
+    box-shadow: 0 3px 10px #dddddddd;
+    animation: fadeIn 300ms;
+    @keyframes fadeIn {
+      from {
+        transform: scale(0.1);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    > img {
+      display: block;
+    }
+  }
+}
