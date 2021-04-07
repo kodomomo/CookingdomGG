@@ -33,6 +33,7 @@ const Navigation = () => {
       <BottomNavigationAction label='쿠키 검색' value='search' />
       <BottomNavigationAction label='쿠키 보기' value='cookies' />
       <BottomNavigationAction label='조합 보기' value='deck' />
+      <BottomNavigationAction label='보물 보기' value='treasures' />
     </BottomNavigation>
   );
 };
