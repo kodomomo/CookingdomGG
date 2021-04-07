@@ -1,6 +1,5 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC } from 'react';
 import config from '../../../config';
-import { cookie } from '../../../models/cookie';
 
 import '../style/index.scss';
 
@@ -10,8 +9,8 @@ interface Props {
 
 const Topping: FC<Props> = ({ topping }) => {
   const getToppingImages = () => {
-    if (!topping) topping = [];
-    return topping.map(url => <img src={`${config.apiHost}/topping/${url}`} alt='' />);
+    if (!topping) return;
+    return topping.map(url => <img src={`${config.apiHost}/image/${url}.png`} alt='' />);
   };
 
   return (
