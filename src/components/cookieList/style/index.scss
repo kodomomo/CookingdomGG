@@ -32,7 +32,7 @@
 .cookielist__header__type {
   display: flex;
   position: relative;
-  margin-bottom: 30px;
+  height: 65px;
 }
 
 .cookielist__header__type > div {
@@ -95,16 +95,17 @@
 
 .cookielist__content {
   width: 100%;
-  min-height: calc(100% - 56px);
+  min-height: calc(100% - 130px);
 }
 
 .cookielist__content__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cookielist__content__list__paper {
-  margin: 8px 7.5px;
+  margin: 8px 5.5px;
   cursor: pointer;
 }
 

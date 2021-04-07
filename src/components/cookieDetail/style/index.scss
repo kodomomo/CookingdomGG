@@ -10,7 +10,9 @@
   display: flex;
   justify-content: center;
   box-shadow: 0 -4px 7px 0px #d7d7d7;
-  transition: 0.5s cubic-bezier(0, 0.67, 0.4, 1);
+  &.moving {
+    transition: 0.5s cubic-bezier(0, 0.67, 0.4, 1);
+  }
 }
 
 .cookiedetail--open {
