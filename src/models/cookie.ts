@@ -25,13 +25,21 @@ export type deck = {
   type: type;
   cookie: cookie[];
   treasure: treasure[];
-  substitution: string[];
+  substitution: treasure[];
 };
 
 export type type = 'PVP' | 'PVE' | 'RAID' | 'ALL';
 
 export type searchType = '티어' | '랭크' | '포지션' | '직업';
-export type tierType =  'ALL' | '1' | '2' | '3' | '4' | '5';
+export type tierType = 'ALL' | '1' | '2' | '3' | '4' | '5';
 export type rankType = 'ALL' | 'EPIC' | 'RARE' | 'NORMAL';
 export type positionType = 'ALL' | 'FRONT' | 'CENTER' | 'REAR';
-export type majorType = 'WIZARD' | 'CHARGE' | 'DEFENSE' | 'RECOVERY' | 'SUPPORT' | 'PENETRATION' | 'OBLIQUE_CASE' | 'EXPLOSION';
+export type majorType =
+  | 'WIZARD'
+  | 'CHARGE'
+  | 'DEFENSE'
+  | 'RECOVERY'
+  | 'SUPPORT'
+  | 'PENETRATION'
+  | 'OBLIQUE_CASE'
+  | 'EXPLOSION';

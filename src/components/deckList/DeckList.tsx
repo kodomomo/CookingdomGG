@@ -18,6 +18,7 @@ const DeckList: FC<Props> = ({ openDetailCookie }) => {
         treasureList={deck.treasure}
         key={index}
         openDetailCookie={openDetailCookie}
+        substitution={deck.substitution}
       />
     ));
   };

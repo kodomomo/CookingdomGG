@@ -15,13 +15,18 @@ export const getAllDeck = async (): Promise<deck[]> => {
         const { data } = await request.get<treasure[]>(`/treasure/name?name=${treasure}`);
         return data[0] ? data[0] : ({} as treasure);
       });
+      const substitutionListAsync = deck.substitution.map(async substitution => {
+        const { data } = await request.get<treasure[]>(`/treasure/name?name=${substitution}`);
+        return data[0] ? data[0] : ({} as treasure);
+      });
       const cookieList = await Promise.all(cookieListAsync);
       const treasureList = await Promise.all(treasureListAsync);
+      const substitutionList = await Promise.all(substitutionListAsync);
       return {
         type: deck.type,
         cookie: cookieList,
         treasure: treasureList,
-        substitution: [],
+        substitution: substitutionList,
       };
     });
     const deck: deck[] = await Promise.all(deckDataAsync);
@@ -44,13 +49,18 @@ export const getTypeDeck = async (type: type): Promise<deck[]> => {
         const { data } = await request.get<treasure[]>(`/treasure/name?name=${treasure}`);
         return data[0] ? data[0] : ({} as treasure);
       });
+      const substitutionListAsync = deck.substitution.map(async substitution => {
+        const { data } = await request.get<treasure[]>(`/treasure/name?name=${substitution}`);
+        return data[0] ? data[0] : ({} as treasure);
+      });
       const cookieList = await Promise.all(cookieListAsync);
       const treasureList = await Promise.all(treasureListAsync);
+      const substitutionList = await Promise.all(substitutionListAsync);
       return {
         type: deck.type,
         cookie: cookieList,
         treasure: treasureList,
-        substitution: [],
+        substitution: substitutionList,
       };
     });
     const deck: deck[] = await Promise.all(deckDataAsync);

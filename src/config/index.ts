@@ -1,7 +1,6 @@
 enum Environment {
   PRODUCTION = 'production',
   DEVELOPMENT = 'development',
-  LOCAL = 'local',
 }
 
 interface Config {
@@ -15,10 +14,6 @@ const config: Record<Environment, Config> = {
     imageUrl: 'https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/',
   },
   [Environment.DEVELOPMENT]: {
-    apiHost: 'http://52.79.226.78:8080',
-    imageUrl: 'https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/',
-  },
-  [Environment.LOCAL]: {
     apiHost: 'http://52.79.226.78:8080',
     imageUrl: 'https://codomo.s3.ap-northeast-2.amazonaws.com/static/image/',
   },

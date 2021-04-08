@@ -6,9 +6,10 @@ interface Props {
   cookieList: cookie[];
   treasureList: treasure[];
   openDetailCookie: (value: string) => void;
+  substitution: treasure[];
 }
 
-const Deck: FC<Props> = ({ cookieList, treasureList, openDetailCookie }) => {
+const Deck: FC<Props> = ({ cookieList, treasureList, openDetailCookie, substitution }) => {
   const getCookieListClickHandler = (cookieName: string) => () => {
     openDetailCookie(cookieName);
   };
@@ -39,10 +40,28 @@ const Deck: FC<Props> = ({ cookieList, treasureList, openDetailCookie }) => {
       )),
     [treasureList],
   );
+  const renderedSubstitutionList = useMemo(() => {
+    const value = substitution.map((treasure, index) => (
+      <ListItem
+        image={treasure.image_url}
+        name={treasure.name}
+        index={index}
+        key={`cookie ${index} ${treasure.name}`}
+        width='70px'
+        height='70px'
+      />
+    ));
+    if (value.length >= 2) value.splice(1, 0, <p>중 택1</p>);
+    return value;
+  }, [substitution]);
+  console.log(renderedSubstitutionList);
   return (
     <div>
       <div className='deck__cookie__wrapper'>{renderedCookieList}</div>
-      <div className='deck__cookie__wrapper'>{renderedTreasureList}</div>
+      <div className='deck__cookie__wrapper'>
+        {renderedTreasureList}
+        {renderedSubstitutionList}
+      </div>
       <div className='decklist__line' />
     </div>
   );
