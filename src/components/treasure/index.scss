@@ -9,6 +9,7 @@
   }
   .treasure__content_item {
     box-shadow: 0 3px 10px #dddddddd;
+    border-radius: 4px;
     animation: fadeIn 300ms;
     @keyframes fadeIn {
       from {
@@ -21,5 +22,13 @@
     > img {
       display: block;
     }
+  }
+}
+
+#treasureDetail {
+  width: 500px;
+  @media all and (max-width: 500px) {
+    max-width: 500px;
+    width: auto;
   }
 }

@@ -104,6 +104,7 @@ const TreasureDetail: FC<Props> = ({ open, setOpen, treasureName }) => {
   return (
     <div
       className={`cookiedetail ${open ? 'cookiedetail--open' : ''} ${processing ? '' : 'moving'}`}
+      id='treasureDetail'
       onClick={clickHandler}
       onMouseDown={mouseDownHandler}
       onMouseMove={mouseMoveHandler}
