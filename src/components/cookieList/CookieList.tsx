@@ -34,8 +34,9 @@ const CookieList: FC<Props> = ({ openDetailCookie }) => {
 
   const renderCookieList = (cookies: cookie[]) => {
     let i = 0;
-    return cookies.map((cookie, index) => (
+    return cookies.map(cookie => (
       <Zoom
+        key={cookie.name}
         in={true}
         style={{
           transitionDelay: `${i++ * 15}ms`,

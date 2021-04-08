@@ -114,7 +114,7 @@ const Header: FC<Props> = ({
           {t.title}
           <ul>
             {t.sub_list.map(sub => (
-              <li>
+              <li key={sub}>
                 <button
                   className={sub === t.value ? 'selected' : ''}
                   onClick={() => changeSearchDetail(t.title, sub)}
@@ -136,7 +136,7 @@ const Header: FC<Props> = ({
         직업
         <ul>
           {Majors.map(sub => (
-            <li>
+            <li key={sub}>
               <img
                 className={major.includes(sub as majorType) ? 'selected' : ''}
                 onClick={() => changeSearchDetail('직업', sub)}

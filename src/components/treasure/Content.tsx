@@ -15,9 +15,8 @@ const Content: FC<Props> = ({ treasures }) => {
           const { image_url } = treasure;
 
           return (
-            <Zoom in={true}>
+            <Zoom in={true} key={i}>
               <div
-                key={i}
                 className='cookielist__content__list__paper treasure__content_item'
                 style={{
                   transitionDelay: `${i++ * 1000}ms`,

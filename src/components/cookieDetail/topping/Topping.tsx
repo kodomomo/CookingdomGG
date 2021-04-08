@@ -10,7 +10,9 @@ interface Props {
 const Topping: FC<Props> = ({ topping }) => {
   const getToppingImages = () => {
     if (!topping) return;
-    return topping.map(url => <img src={`${config.apiHost}/image/${url}.png`} alt='' />);
+    return topping.map((url, i) => (
+      <img key={i} src={`${config.apiHost}/image/${url}.png`} alt='' />
+    ));
   };
 
   return (
