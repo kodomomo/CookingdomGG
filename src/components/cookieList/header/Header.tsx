@@ -108,6 +108,7 @@ const Header: FC<Props> = ({
     type.forEach(t => {
       headers.push(
         <div
+          key={t.title}
           className={t.title === searchType ? 'selected' : ''}
           onClickCapture={() => changeSearchType(t.title)}
         >
@@ -130,6 +131,7 @@ const Header: FC<Props> = ({
 
     headers.push(
       <div
+        key={'직업'}
         className={'직업' === searchType ? 'selected' : ''}
         onClickCapture={() => changeSearchType('직업')}
       >
