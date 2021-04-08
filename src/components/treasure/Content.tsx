@@ -1,18 +1,24 @@
+import React, { FC, memo, MouseEvent, useCallback } from 'react';
 import { Zoom } from '@material-ui/core';
-import React, { FC } from 'react';
+
 import config from '../../config';
 import { Treasure } from '../../models/treasure';
 
 interface Props {
   treasures: Treasure[];
+  openDetailTreasure: (treasureName: string) => void;
 }
 
-const Content: FC<Props> = ({ treasures }) => {
+const Content: FC<Props> = ({ treasures, openDetailTreasure }) => {
+  const handleOpenDetail = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.dataset.name) openDetailTreasure(e.currentTarget.dataset.name);
+  };
+
   return (
     <div className='cookielist__content'>
       <div className='cookielist__content__list'>
         {treasures.map((treasure, i) => {
-          const { image_url } = treasure;
+          const { image_url, name } = treasure;
 
           return (
             <Zoom in={true} key={i}>
@@ -21,6 +27,8 @@ const Content: FC<Props> = ({ treasures }) => {
                 style={{
                   transitionDelay: `${i++ * 1000}ms`,
                 }}
+                data-name={name}
+                onClick={handleOpenDetail}
               >
                 <img src={`${config.imageUrl}${image_url}`} alt='treasure' />
               </div>
@@ -32,4 +40,4 @@ const Content: FC<Props> = ({ treasures }) => {
   );
 };
 
-export default Content;
+export default memo(Content);
