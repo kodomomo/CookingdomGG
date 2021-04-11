@@ -30,6 +30,8 @@ const useStyles = makeStyles(theme => ({
     border: '0px',
     backgroundSize: '100%',
     boxShadow: '0px 0px white',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   },
   polygon: {
     fill: theme.palette.common.white,
