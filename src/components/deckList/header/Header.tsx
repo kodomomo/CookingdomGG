@@ -14,41 +14,20 @@ const Header: FC<Props> = ({ setDeckType, deckType }) => {
     }
     return false;
   };
-  const returnSelectedClassName = (nowDeckType: type, itemDeckType: type): string => {
-    const selected = isSelected(nowDeckType, itemDeckType);
-    return selected ? 'selected' : '';
-  };
   const getDeckTypeButtonClickHandler = (itemDeckType: type) => {
     return () => setDeckType(itemDeckType);
   };
   return (
-    <div className='decklist__header '>
-      <p className='decklist__title'>조합보기</p>
-      <div className='decklist__category'>
-        <button
-          className={`decklist__category__item ${returnSelectedClassName(deckType, 'ALL')}`}
-          onClick={getDeckTypeButtonClickHandler('ALL')}
-        >
-          All
-        </button>
-        <button
-          className={`decklist__category__item ${returnSelectedClassName(deckType, 'PVE')}`}
-          onClick={getDeckTypeButtonClickHandler('PVE')}
-        >
-          PVE
-        </button>
-        <button
-          className={`decklist__category__item ${returnSelectedClassName(deckType, 'PVP')}`}
-          onClick={getDeckTypeButtonClickHandler('PVP')}
-        >
-          PVP
-        </button>
-        <button
-          className={`decklist__category__item ${returnSelectedClassName(deckType, 'RAID')}`}
-          onClick={getDeckTypeButtonClickHandler('RAID')}
-        >
-          RAID
-        </button>
+    <div className='cookielist__header'>
+      <div className='cookielist__header__title'>
+        <img />
+        <p>조합 보기</p>
+      </div>
+      <div className='cookielist__header__type treasure-header-list'>
+        <div onClick={getDeckTypeButtonClickHandler('ALL')}>All</div>
+        <div onClick={getDeckTypeButtonClickHandler('PVE')}>PVE</div>
+        <div onClick={getDeckTypeButtonClickHandler('PVP')}>PVP</div>
+        <div onClick={getDeckTypeButtonClickHandler('RAID')}>RAID</div>
       </div>
     </div>
   );
