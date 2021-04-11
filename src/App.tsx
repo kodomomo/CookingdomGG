@@ -28,7 +28,15 @@ const App = () => {
       <div className='webview__wrapper'>
         <div className='main'>
           <Switch>
-            <Route path='/deck' render={() => <DeckPage openDetailCookie={openDetailCookie} />} />
+            <Route
+              path='/deck'
+              render={() => (
+                <DeckPage
+                  openDetailCookie={openDetailCookie}
+                  openDetailTreasure={openDetailTreasure}
+                />
+              )}
+            />
             <Route
               path='/cookies'
               render={() => <CookieListPage openDetailCookie={openDetailCookie} />}

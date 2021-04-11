@@ -7,9 +7,10 @@ import { CircularProgress } from '@material-ui/core';
 
 interface Props {
   openDetailCookie: (value: string) => void;
+  openDetailTreasure: (treasureName: string) => void;
 }
 
-const DeckList: FC<Props> = ({ openDetailCookie }) => {
+const DeckList: FC<Props> = ({ openDetailCookie, openDetailTreasure }) => {
   const { deck, deckType, setDeckType, loading } = useDeckUseCase();
   const renderDeck = (decks: deck[]) => {
     return decks.map((deck, index) => (
@@ -18,6 +19,7 @@ const DeckList: FC<Props> = ({ openDetailCookie }) => {
         treasureList={deck.treasure}
         key={index}
         openDetailCookie={openDetailCookie}
+        openDetailTreasure={openDetailTreasure}
         substitution={deck.substitution}
       />
     ));
