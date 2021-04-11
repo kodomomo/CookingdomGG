@@ -1,8 +1,6 @@
-import React, { FC, memo, MouseEvent, useCallback } from 'react';
-import { Zoom } from '@material-ui/core';
-
-import config from '../../config';
+import React, { FC, memo, MouseEvent } from 'react';
 import { Treasure } from '../../models/treasure';
+import ListItem from '../listItem';
 
 interface Props {
   treasures: Treasure[];
@@ -14,6 +12,10 @@ const Content: FC<Props> = ({ treasures, openDetailTreasure }) => {
     if (e.currentTarget.dataset.name) openDetailTreasure(e.currentTarget.dataset.name);
   };
 
+  const getHandlerOpenDetail = (treasureName: string) => () => {
+    openDetailTreasure(treasureName);
+  };
+
   return (
     <div className='cookielist__content'>
       <div className='cookielist__content__list'>
@@ -21,18 +23,12 @@ const Content: FC<Props> = ({ treasures, openDetailTreasure }) => {
           const { image_url, name } = treasure;
 
           return (
-            <Zoom in={true} key={i}>
-              <div
-                className='cookielist__content__list__paper treasure__content_item'
-                style={{
-                  transitionDelay: `${i++ * 1000}ms`,
-                }}
-                data-name={name}
-                onClick={handleOpenDetail}
-              >
-                <img src={`${config.imageUrl}${image_url}`} alt='treasure' />
-              </div>
-            </Zoom>
+            <ListItem
+              image={image_url}
+              name={name}
+              index={i}
+              onClick={getHandlerOpenDetail(name)}
+            />
           );
         })}
       </div>

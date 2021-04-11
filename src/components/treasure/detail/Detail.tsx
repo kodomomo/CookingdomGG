@@ -86,11 +86,16 @@ const TreasureDetail: FC<Props> = ({ open, setOpen, treasureName }) => {
   };
 
   useEffect(() => {
+    window.addEventListener('click', () => {
+      setOpen(false);
+    });
     return () => {
       setOpen(false);
     };
   }, []);
+
   useEffect(() => {
+    console.log(open);
     const element = document.getElementById('cookielist__wrapper');
     if (open && element) {
       // element.style.overflowY = 'hidden';
